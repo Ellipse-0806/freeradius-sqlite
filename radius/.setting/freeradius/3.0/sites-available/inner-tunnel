@@ -263,7 +263,7 @@ session {
 
 	#
 	#  See "Simultaneous Use Checking Queries" in `mods-config/sql/main/$driver/queries.conf`
-#	sql
+	sql
 }
 
 

@@ -4,8 +4,8 @@ RUN set -eux; \
         apt-get update; \
         apt-get install -y --no-install-recommends \
             ca-certificates \
-		    netbase \
-		    tzdata \
+            netbase \
+            tzdata \
 	    ; \
 	    rm -rf /var/lib/apt/lists/*
 
@@ -44,6 +44,6 @@ RUN set -eux; \
 
 COPY .setting/freeradius /etc/freeradius
 
-RUN sqlite3 /var/lib/freeradius.db < /etc/freeradius/3.0/mods-config/sql/main/sqlite/schema.sql; \
+RUN sqlite3 /var/lib/data/freeradius.db < /etc/freeradius/3.0/mods-config/sql/main/sqlite/schema.sql; \
     ln -s /etc/freeradius/3.0/mods-available/sql /etc/freeradius/3.0/mods-enabled/
 

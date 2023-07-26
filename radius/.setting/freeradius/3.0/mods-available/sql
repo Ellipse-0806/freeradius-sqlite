@@ -69,7 +69,7 @@ sql {
 	#
 	sqlite {
 		# Path to the sqlite database
-		filename = "/var/lib/freeradius.db"
+		filename = "/var/lib/data/freeradius.db"
 
 		# How long to wait for write locks on the database to be
 		# released (in ms) before giving up.

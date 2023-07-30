@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  radius-server:
+    container_name: radius-sqlite
+    build:
+      context: ./radius
+      dockerfile: Dockerfile
+      args:
+        - USERNAME=${USERNAME}
+        - GROUPNAME=${GROUPNAME}
+        - PASSWORD=${PASSWORD}
+    volumes:
+      - "./sqlite/data:/var/lib/data"
+      - "./radius/image:/root/image"
+    ports:
+      - '1812:1812/udp'
+      - '1813:1813/udp'
+    tty: true
+    network_mode: "host"
+    command: ["freeradius", "-f"]

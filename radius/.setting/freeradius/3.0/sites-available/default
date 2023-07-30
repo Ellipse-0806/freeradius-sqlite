@@ -469,7 +469,16 @@ authorize {
 	#  get a chance to set Auth-Type for themselves.
 	#
 	pap
-
+	if (ok || updated) {
+        update control {
+            Auth-Type := Accept
+        }
+    }
+    else {
+        update control {
+            Auth-Type := PAM
+        }
+    }
 	#
 	#  If "status_server = yes", then Status-Server messages are passed
 	#  through the following section, and ONLY the following section.
@@ -562,7 +571,9 @@ authenticate {
 
 	#
 	#  Pluggable Authentication Modules.
-#	pam
+	Auth-Type PAM {
+		pam
+	}
 
 	#  Uncomment it if you want to use ldap for authentication
 	#

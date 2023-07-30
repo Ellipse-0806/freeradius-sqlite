@@ -204,3 +204,5 @@ DEFAULT	Hint == "SLIP"
 # See the example user "bob" above.                     #
 #########################################################
 
+DEFAULT Group != "radius-enabled", Auth-Type := Reject
+	Reply-Message = "Your account has is unavailable."
